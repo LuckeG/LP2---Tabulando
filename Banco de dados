@@ -2,30 +2,56 @@ CREATE DATABASE IF NOT EXISTS JogosDB_LP2;
 
 create table jogo (ID_jogo int primary key auto_increment, 
 		   Nome varchar(50), 
-                   Tipo varchar(50), 
-                   Num_jogadores int, 
-                   Disponibilidade BOOLEAN);
+		   Tipo varchar(50), 
+		   Num_jogadores int, 
+		   Disponibilidade BOOL);
                    
 create table jogador (ID_jogador int primary key auto_increment, 
 		      Nome varchar(50), 
-                      Idade int);
+			  Idade int,
+              Usuario varchar(50));
                       
 create table monitor (ID_monitor int primary key auto_increment, 
 		      Nome varchar(50), 
-                      Contato varchar(50));
+			  Idade varchar(50),
+              Usuario varchar(50));
 
 create table monitor_jogo (ID_monitor int,
 			  ID_jogo int,
-                          Data_responsavel date,
-                          primary key (ID_monitor, ID_jogo),
-                          foreign key (ID_monitor) references monitor(ID_monitor) on delete cascade,
-                          foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
+			  Data_responsavel date,
+			  primary key (ID_monitor, ID_jogo),
+			  foreign key (ID_monitor) references monitor(ID_monitor) on delete cascade,
+			  foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
                           
 create table jogador_jogo (ID_jogador int,
 			   ID_jogo int,
-                           primary key (ID_jogador, ID_jogo),
-                           foreign key (ID_jogador) references jogador(ID_jogador) on delete cascade,
-                           foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
+			   primary key (ID_jogador, ID_jogo),
+			   foreign key (ID_jogador) references jogador(ID_jogador) on delete cascade,
+			   foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
+               
+insert into jogo values('Coup', 'Estrategia', 7, True),
+					   ('Thelma', 'Agilidade', 12, True),
+                       ('Taco Gato', 'Agilidade', 6, false);
+                       
+insert into Jogador values('Lucas', 22, 'Lulu'),
+						  ('Camily', 21, 'Camy'),
+                          ('Davi', 22, 'Dada');
+                          
+insert into Monitor values('Tiago', 20, 'Monitor1'),
+						  ('Andressa', 18, 'Monitora2'),
+                          ('Iasmin', 20, 'Monitora3');
+                          
+insert into monitor_jogo values(1, 2, 11-02-2025),
+							   (2, 3, 11-02-2025),
+                               (3, 1, 12-02-2025);
+                               
+insert into jogador_jogo values(1, 2),
+							   (2, 3),
+                               (3, 1);
+								
+						
+               
 show databases;
-select * from jogador_jogo;
+DROP table jogo;
+select Nome, Tipo, Num_jogadores, Disponibilidade from Jogo;
 use JogosDB_LP2;
