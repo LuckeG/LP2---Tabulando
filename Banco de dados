@@ -4,7 +4,7 @@ create table jogo (ID_jogo int primary key auto_increment,
 		   Nome varchar(50), 
                    Tipo varchar(50), 
                    Num_jogadores int, 
-                   Disponibilidade varchar(50));
+                   Disponibilidade BOOLEAN);
                    
 create table jogador (ID_jogador int primary key auto_increment, 
 		      Nome varchar(50), 
