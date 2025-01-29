@@ -1,0 +1,31 @@
+CREATE DATABASE IF NOT EXISTS JogosDB_LP2;
+
+create table jogo (ID_jogo int primary key auto_increment, 
+				   Nome varchar(50), 
+                   Tipo varchar(50), 
+                   Num_jogadores int, 
+                   Disponibilidade varchar(50));
+                   
+create table jogador (ID_jogador int primary key auto_increment, 
+					  Nome varchar(50), 
+                      Idade int);
+                      
+create table monitor (ID_monitor int primary key auto_increment, 
+					  Nome varchar(50), 
+                      Contato varchar(50));
+
+create table monitor_jogo (ID_monitor int,
+						  ID_jogo int,
+                          Data_responsavel date,
+                          primary key (ID_monitor, ID_jogo),
+                          foreign key (ID_monitor) references monitor(ID_monitor) on delete cascade,
+                          foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
+                          
+create table jogador_jogo (ID_jogador int,
+						   ID_jogo int,
+                           primary key (ID_jogador, ID_jogo),
+                           foreign key (ID_jogador) references jogador(ID_jogador) on delete cascade,
+                           foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
+show databases;
+select * from jogador_jogo;
+use JogosDB_LP2;
