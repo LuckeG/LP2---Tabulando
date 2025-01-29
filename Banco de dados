@@ -8,13 +8,13 @@ create table jogo (ID_jogo int primary key auto_increment,
                    
 create table jogador (ID_jogador int primary key auto_increment, 
 		      Nome varchar(50), 
-			  Idade int,
-              Usuario varchar(50));
+		      Idade int,
+                      Usuario varchar(50));
                       
 create table monitor (ID_monitor int primary key auto_increment, 
 		      Nome varchar(50), 
-			  Idade varchar(50),
-              Usuario varchar(50));
+		      Idade varchar(50),
+              	      Usuario varchar(50));
 
 create table monitor_jogo (ID_monitor int,
 			  ID_jogo int,
@@ -29,24 +29,24 @@ create table jogador_jogo (ID_jogador int,
 			   foreign key (ID_jogador) references jogador(ID_jogador) on delete cascade,
 			   foreign key (ID_jogo) references jogo(ID_jogo) on delete cascade);
                
-insert into jogo values('Coup', 'Estrategia', 7, True),
-					   ('Thelma', 'Agilidade', 12, True),
-                       ('Taco Gato', 'Agilidade', 6, false);
+insert into jogo values(1, 'Coup', 'Estrategia', 7, true),
+	               (2, 'Thelma', 'Agilidade', 12, true),
+                       (3, 'Taco Gato', 'Agilidade', 6, false);
                        
 insert into Jogador values('Lucas', 22, 'Lulu'),
-						  ('Camily', 21, 'Camy'),
+			  ('Camily', 21, 'Camy'),
                           ('Davi', 22, 'Dada');
                           
 insert into Monitor values('Tiago', 20, 'Monitor1'),
-						  ('Andressa', 18, 'Monitora2'),
+			  ('Andressa', 18, 'Monitora2'),
                           ('Iasmin', 20, 'Monitora3');
                           
 insert into monitor_jogo values(1, 2, 11-02-2025),
-							   (2, 3, 11-02-2025),
+			       (2, 3, 11-02-2025),
                                (3, 1, 12-02-2025);
                                
 insert into jogador_jogo values(1, 2),
-							   (2, 3),
+			       (2, 3),
                                (3, 1);
 								
 						
