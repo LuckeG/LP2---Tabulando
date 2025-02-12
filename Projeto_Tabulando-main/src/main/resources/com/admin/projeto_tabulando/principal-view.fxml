@@ -29,7 +29,7 @@
                 <Image url="@../../../img/nova.jpeg" />
             </image>
         </ImageView>
-      <Label fx:id="nome" alignment="CENTER" contentDisplay="CENTER" layoutX="557.0" layoutY="102.0" style="-fx-background-radius: 5px; -fx-border-width: 5; -fx-border-radius: 5;" textAlignment="CENTER" textFill="#e16302">
+      <Label fx:id="nome" alignment="CENTER" contentDisplay="CENTER" layoutX="501.0" layoutY="102.0" prefHeight="35.0" prefWidth="123.0" style="-fx-background-radius: 5px; -fx-border-width: 5; -fx-border-radius: 5;" textAlignment="CENTER" textFill="#e16302">
          <font>
             <Font name="Gabriola" size="29.0" />
          </font>
